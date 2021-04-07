@@ -3,6 +3,8 @@
   "description": "Uniswap Interface",
   "homepage": ".",
   "private": true,
+"proxy": "http://localhost:3000",
+
   "devDependencies": {
     "@ethersproject/experimental": "^5.0.1",
     "@fuseio/fuse-swap-default-token-list": "~2.0.0",

@@ -94,16 +94,14 @@ const StyledTokenName = styled.span<{ active?: boolean }>`
 const StyledBalanceMax = styled.button`
   height: 28px;
   background-color: ${({ theme }) => theme.bg7};
-  border: 1px solid #3b3e48;
   border-radius: 999px;
+  border: 0px;
   font-size: 0.75rem;
-
   font-weight: 500;
   cursor: pointer;
   margin-right: 0.5rem;
-  color: white;
+  color: ${({ theme }) => theme.text1};
   :hover {
-    border: 1px solid ${() => darken(0.05, '#3b3e48')};
     background-color: ${({ theme }) => darken(0.05, theme.bg7)};
   }
 

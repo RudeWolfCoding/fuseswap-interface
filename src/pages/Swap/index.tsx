@@ -50,6 +50,17 @@ import BridgeInfo from '../../components/swap/BridgeInfo'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import TokenMigrationModal from '../../components/TokenMigration'
 import { isTokenOnTokenList } from '../../utils'
+import styled from 'styled-components'
+
+const ExpandableWrapper = styled("div")`
+  overflow: hidden;
+  height: auto;
+`
+
+const Content = styled("div")<{ size: string }>`
+  margin-top: ${({ size }) => size}px;
+  transition: all 0.4s;
+`
 
 export default function Swap() {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -534,9 +545,12 @@ export default function Swap() {
             {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
             {betterTradeLinkVersion && <BetterTradeLink version={betterTradeLinkVersion} />}
           </BottomGrouping>
-          <AdvancedSwapDetailsDropdown trade={trade} />
-
         </Wrapper>
+          <ExpandableWrapper>
+            <Content size={trade ? '0' : '-375'}>
+              <AdvancedSwapDetailsDropdown trade={trade} />
+            </Content>
+          </ExpandableWrapper>
       </AppBody>
     </>
   )

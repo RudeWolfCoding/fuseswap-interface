@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import fuse from '../../assets/svg/fuse_sub.svg'
 import { ChevronUp } from 'react-feather'
 import Card from '../MainCard'
+import {articles} from './articles.js'
 
 export const Header = styled.div`
   display: flex;
@@ -29,33 +30,21 @@ const HeaderOptions = styled("div")<{ size: string, y: string }>`
 `
 
 const ExpandableWrapper = styled.div`
-overflow: hidden;
+  overflow: hidden;
 `
 
 const Content = styled("div")<{ size: string }>`
-margin-top: ${({ size }) => size}%;
-transition: all 0.4s;`
+  margin-top: ${({ size }) => size}%;
+  transition: all 0.4s;
+`
+const Article = styled("div")`
+  padding-left: 1rem;
+  border-bottom: solid 1px #E4DDDD;
+  padding-bottom: 1rem;
+`
 
 export default function NewsModal() {
   const [open,setOpen] = useState(false);
-  const articles = [
-    {
-    title: 'Article 1',
-    description: 'Magna consectetur elit magna deserunt excepteur irure voluptate commodo do ipsum.',
-    link: ''
-  },
-  {
-    title: 'Article 2',
-    description: 'Deserunt non occaecat tempor excepteur amet id sint eu laborum in.',
-    link: ''
-  },
-  {
-    title: 'Article 3',
-    description: 'Est do dolor voluptate Lorem laborum ad ex pariatur anim id ea.',
-    link: ''
-  },
-
-]
   const toggle = () => {setOpen(!open)}
 
   return (
@@ -77,11 +66,11 @@ export default function NewsModal() {
       <ExpandableWrapper>
         <Content size={open ? '0' : '-100'}>
         {articles.map((article, index) => (
-          <div>
+          <Article>
           <h4>{article.title}</h4>
           <p>{article.description}</p>
           <a href={article.link}>Read More</a>
-          </div>
+          </Article>
         ))}
         </Content>
       </ExpandableWrapper>
