@@ -42,7 +42,7 @@ export default function Footer() {
   const [error, setError] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("http://service.fuseswap.com/api/v1/price/0x0be9e53fd7edac9f859882afdda116645287c629")
+    fetch("https://service.fuseswap.com/api/v1/price/0x0be9e53fd7edac9f859882afdda116645287c629")
     .then((response) => {
       if (response.ok) {
         return response.json();
